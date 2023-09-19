@@ -17,11 +17,35 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  /* color: rgb(var(--foreground-rgb)); */
   background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+.DeleteEffect {
+  animation: deleteAnimation 0.8s forwards;
+}
+
+@keyframes deleteAnimation {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(-65px);
+  }
+}
+.reverseDeleteEffect {
+  animation: deleteAnimation 0.8s reverse;
+}
+
+.DeleteButtonClickedEffect {
+  display: none;
 }
