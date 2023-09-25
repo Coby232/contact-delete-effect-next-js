@@ -5,9 +5,7 @@ import MinusIcon from "./icons/minusIcon";
 const Effect = () => {
   const [slideLeft, setSlideLeft] = useState(false);
   const [onCancel, setOnCancel] = useState(false);
-  const [deleteEffect, setDeleteEffect] = useState(
-    "reverseDeleteEffect"
-  );
+  const [deleteEffect, setDeleteEffect] = useState("reverseDeleteEffect");
   const [deleteButtonClick, setDeleteButtonClick] = useState("");
 
   const handleDelete = (childData, deleteStyle) => {
