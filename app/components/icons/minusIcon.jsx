@@ -28,9 +28,7 @@ const MinusIcon = ({
         </button>
       )}
       {hasBeenClicked && (
-        <button
-          onClick={() => {}}
-          >
+        <button>
           <Image
             alt=''
             src={minus}
