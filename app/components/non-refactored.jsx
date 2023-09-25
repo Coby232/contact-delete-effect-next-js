@@ -8,44 +8,40 @@ const Effect = () => {
   const [deleteEffect, setDeleteEffect] = useState(
     "reverseDeleteEffect"
   );
+
   const [deleteButtonClick, setDeleteButtonClick] = useState("");
 
-  const handleDelete = (childData, deleteStyle) => {
+  const _handleDelete = (childData,deleteStyle) => {
     setSlideLeft(childData);
     setDeleteEffect(deleteStyle);
   };
 
-  const handleCancel = (childData) => {
+  const _handleCancel = (childData) => {
     setOnCancel(childData);
   };
 
-  const handleDeleteButtonClick = () => {
+  const _handleDeleteButtonClick = () => {
     setDeleteButtonClick("DeleteButtonClickedEffect");
   };
-
-  const containerClasses = `flex h-10 w-screen bg-white overflow-hidden ${deleteButtonClick}`;
-
-  const innerClasses = `flex h-full min-w-full gap-x-3 justify-center items-center border p-5 ${
-    slideLeft ? deleteEffect : "reverseDeleteEffect"
-  } ${onCancel ? "reverseDeleteEffect" : ""}`;
-
-  const innerClassForDeleteButton = `h-full bg-red-600 text-white p-2 ${
-              slideLeft ? deleteEffect : "reverseDeleteEffect"
-            } ${onCancel ? "reverseDeleteEffect" : ""}`
 
   return (
     <>
       {!slideLeft && (
-        <div className={containerClasses}>
-          <div className={innerClasses}>
+        <div
+          className={`flex h-10 w-screen bg-white overflow-hidden  ${deleteButtonClick}  `}
+         >
+          <div
+            className={`flex h-full min-w-full gap-x-3 justify-center items-center border p-5  ${
+              slideLeft ? deleteEffect : "reverseDeleteEffect"
+            } ${onCancel ? "reverseDeleteEffect" : ""} `}>
             <MinusIcon
               iconWidth={20}
               iconHeight={20}
-              handleDelete={handleDelete}
-              handleCancel={handleCancel}
+              handleDelete={_handleDelete}
+              handleCancel={_handleCancel}
               hasBeenClicked={slideLeft}
-            />
-            homepage {" > "}
+            />{" "}
+            homepage {">"}{" "}
             <form>
               <label>
                 <input
@@ -59,28 +55,35 @@ const Effect = () => {
             </form>
           </div>
           <button
-            className={innerClassForDeleteButton}
-            onClick={handleDeleteButtonClick}>
+            className={`h-full bg-red-600 text-white p-2  ${
+              slideLeft ? deleteEffect : "reverseDeleteEffect"
+            } ${onCancel ? "reverseDeleteEffect" : ""}`}
+            onClick={() => {
+              _handleDeleteButtonClick();
+            }}>
             Delete
           </button>
         </div>
       )}
       {slideLeft && (
         <div
-          className={containerClasses}
+          className={`flex h-10 w-screen bg-white overflow-hidden  ${deleteButtonClick} `}
           onClick={() => {
             setOnCancel(true);
             setSlideLeft(false);
           }}>
-          <div className={innerClasses}>
+          <div
+            className={`flex h-full min-w-full gap-x-3 justify-center items-center border p-5  ${
+              slideLeft ? deleteEffect : "reverseDeleteEffect"
+            } ${onCancel ? "reverseDeleteEffect" : ""} `}>
             <MinusIcon
               iconWidth={20}
               iconHeight={20}
-              handleDelete={handleDelete}
-              handleCancel={handleCancel}
+              handleDelete={_handleDelete}
+              handleCancel={_handleCancel}
               hasBeenClicked={slideLeft}
-            />
-            homepage {" > "}
+            />{" "}
+            homepage {">"}{" "}
             <form>
               <label>
                 <input
@@ -94,8 +97,12 @@ const Effect = () => {
             </form>
           </div>
           <button
-            className={innerClassForDeleteButton}
-            onClick={handleDeleteButtonClick}>
+            className={`h-full bg-red-600 text-white p-2  ${
+              slideLeft ? deleteEffect : "reverseDeleteEffect"
+            } ${onCancel ? "reverseDeleteEffect" : ""}`}
+            onClick={() => {
+              _handleDeleteButtonClick();
+            }}>
             Delete
           </button>
         </div>

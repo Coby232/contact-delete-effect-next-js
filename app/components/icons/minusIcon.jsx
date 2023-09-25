@@ -15,7 +15,7 @@ const MinusIcon = ({
       {!hasBeenClicked && (
         <button
           onClick={() => {
-            handleDelete(true);
+            handleDelete(true,"DeleteEffect");
             handleCancel(false);
           }}>
           <Image
@@ -28,9 +28,7 @@ const MinusIcon = ({
         </button>
       )}
       {hasBeenClicked && (
-        <button
-          onClick={() => {}}
-          >
+        <button>
           <Image
             alt=''
             src={minus}
