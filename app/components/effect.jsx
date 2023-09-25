@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import MinusIcon from "./icons/minusIcon";
 
 const Effect = ({}) => {
@@ -11,14 +11,9 @@ const Effect = ({}) => {
 
   const [deleteButtonClick, setDeleteButtonClick] = useState("");
 
-  useEffect(() => {
-    if (slideLeft) {
-      setDeleteEffect("DeleteEffect");
-    }
-  }, [deleteEffect, slideLeft]);
-
-  const _handleDelete = (childData) => {
+  const _handleDelete = (childData,deleteStyle) => {
     setSlideLeft(childData);
+    setDeleteEffect(deleteStyle);
   };
 
   const _handleCancel = (childData) => {
@@ -34,10 +29,7 @@ const Effect = ({}) => {
       {!slideLeft && (
         <div
           className={`flex h-10 w-screen bg-white overflow-hidden  ${deleteButtonClick}  `}
-          onClick={() => {
-            // setOnCancel(true);
-            // setSlideLeft(false)
-          }}>
+         >
           <div
             className={`flex h-full min-w-full gap-x-3 justify-center items-center border p-5  ${
               slideLeft ? deleteEffect : "reverseDeleteEffect"

@@ -15,7 +15,7 @@ const MinusIcon = ({
       {!hasBeenClicked && (
         <button
           onClick={() => {
-            handleDelete(true);
+            handleDelete(true,"DeleteEffect");
             handleCancel(false);
           }}>
           <Image
